@@ -2,13 +2,19 @@
 
 **HealAdvisor** is a health and wellness platform that connects users with holistic health practitioners. Users can search for practitioners based on health concerns, book appointments, and explore detailed practitioner profiles including therapies, languages, qualifications, and working hours.
 
-Features
+ 🚀 Features
     - User registration and login with Laravel Sanctum authentication
     - Create or update practitioner profile (clinic info, bio, location, profile photo)
     - Fetch full practitioner profile (user info + practitioner details)
     - Secure API routes with Sanctum middleware
 
-Installation
+
+🛠️ Built With
+- **Laravel** – Backend framework
+- **Postman** – API testing
+
+  
+📦 Installation
     - Clone this repo
     - Run composer install
     - Copy .env.example to .env and set up your database & app keys
