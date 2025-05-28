@@ -12,9 +12,8 @@ Route::post('/login', [AuthController::class, 'login']);
 
 // Protected routes for practitioners
 Route::middleware('auth:sanctum')->group(function () {
-   Route::post('/practitioner/create-or-update', [PractitionerProfileController::class, 'createOrUpdate']);
-    Route::get('/practitioner/profile', [PractitionerProfileController::class, 'show']);
+    Route::post('/practitioner/create-or-update', [PractitionerProfileController::class, 'createOrUpdate']);
+    Route::get('/practitioner/profile', [PractitionerProfileController::class, 'getFullProfile']);
     Route::put('/practitioner/profile', [PractitionerProfileController::class, 'update']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
-

@@ -41,16 +41,33 @@ class PractitionerProfileController extends Controller
         }
     }
 
-    public function show(Request $request)
+    public function getFullProfile(Request $request)
     {
-        $practitioner = $request->user()->practitioner;
+        $user = $request->user();
+
+        $practitioner = $user->practitioner; // assuming relation is defined
 
         if (!$practitioner) {
             return response()->json(['message' => 'Practitioner profile not found'], 404);
         }
 
-        return response()->json($practitioner);
+        return response()->json([
+            'user' => [
+                'name' => $user->name,
+                'email' => $user->email,
+                'slug' => $practitioner->slug,
+            ],
+            'practitioner' => [
+                'clinic_name' => $practitioner->clinic_name,
+                'bio' => $practitioner->bio,
+                'location' => $practitioner->location,
+                'profile_photo_url' => $practitioner->profile_photo
+                    ? asset('storage/' . $practitioner->profile_photo)
+                    : null,
+            ]
+        ]);
     }
+
 
     public function update(Request $request)
     {
